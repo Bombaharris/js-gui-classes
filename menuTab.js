@@ -1,5 +1,5 @@
 /*  
-    MenuHarnony.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
+    menuTab.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
     http://github.com/Bombaharris/js-gui-classes
     Rafał Zielonka
     Varsion 1.0 (2012-06-19)
@@ -19,57 +19,50 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/> 
  */
-var Harmony = Class.create({
-    initialize: function(menuId, options) {
+var Tab = Class.create({
+    initialize: function(menuId,containerId, options) {
         this.menu = $(menuId);
-        this.initialState = true;
+        this.container = $(containerId);
+        this.menuequivalents = this.container.select('div');
+        this.menuequivalents.invoke('hide');
+        this.selectedA = this.menu.childElements().first().down();
+        this.selectedDIV = this.menuequivalents.first();
         this.initOptions(options);
+        this.showCurrentActive();
         this.behave();
     },
     initOptions: function(options) {
         this.options = {
-            menuClassName: 'dropdown',
             activeClassName:'selected',
-            behavior: 'slide'
+            behavior: 'hide'
         };
         Object.extend(this.options, options || { });
     },
     behave: function() {
-        this.menu.childElements().each(function(element) {
-            element.down('ul').setStyle({
-                display: 'none'
-            });
-            element.down('a').observe('click', function(event) {
-                (this.selectedA == Event.element(event)) ? this.initialState = true : Event.stop(event);
+        this.menu.childElements().each(function(element,index) {
+            element.down().observe('click', function(event) {
+                Event.stop(event);
+                this.hideLastActive();
                 this.selectedA = Event.element(event);
-                this.selectedUL = Event.element(event).next('ul');
-                this.uncollapseCurrentActive();
-                this.initialState = false;
+                this.selectedDIV = this.menuequivalents[index];
+                this.showCurrentActive();
             }.bind(this));
         }.bind(this));
     },
-    colapseLastActive: function() {
+    hideLastActive: function() {
         switch(this.options.behaviour) {
-            case 'slide':
+            case 'hide':
             default:
-                Effect.SlideUp(this.selectedUL, {
-                    duration: 0.5
-                });
+                this.selectedDIV.hide();
                 break;
         }
         this.selectedA.removeClassName(this.options.activeClassName);
     },
-    uncollapseCurrentActive: function() {
-        if ( this.selectedA.hasClassName(this.options.activeClassName) ) {
-            this.colapseLastActive();
-            return;
-        }
+    showCurrentActive: function() {
         switch(this.options.behaviour) {
-            case 'slide':
+            case 'hide':
             default:
-                Effect.SlideDown(this.selectedUL, {
-                    duration: 0.5
-                });
+                this.selectedDIV.show()
                 break;
         }
         this.selectedA.addClassName(this.options.activeClassName);

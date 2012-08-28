@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>js-gui-classes examples</title>
+        <meta name="description" content="Prototype JavaScript Framework based classes build to support front-end developers">
+        <meta name="viewport" content="width=device-width">
+        <link rel="icon" href="favicon.ico">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/typography.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <header class="header">
+            <h1>js-gui-classes examples</h1>
+        </header>
+        <section class="content">
+            <article>
+                <header>
+                    <h1><a id="menuHarmony" href="#menuHarmony">menuHarmony.js</a></h1>
+                </header>
+                <section>
+                    <h1><a id="menuHarmonyDemo" href="#menuHarmonyDemo">Demo</a></h1>
+                    <nav>
+                        <ul class="dropdown" id="dropdown">
+                            <li>
+                                <a href="#">menuHarmony.js</a>
+                                <ul>
+                                    <li>
+                                        <a href="#menuHarmonyDemo">demo</a>                        
+                                    </li>
+                                    <li>
+                                        <a href="#menuHarmonyExample">example</a>                        
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">menuTab.js</a>
+                                <ul>
+                                    <li>
+                                        <a href="#menuTabDemo">demo</a>                        
+                                    </li>
+                                    <li>
+                                        <a href="#menuTabExample">example</a>                        
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">carouselImg.js</a>
+                                <ul>
+                                    <li>
+                                        <a href="#carouselImgDemo">demo</a>                        
+                                    </li>
+                                    <li>
+                                        <a href="#carouselImgExample">example</a>                        
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </section>
+                <section>
+                    <h1><a id="menuHarmonyExample" href="#menuHarmonyExample">Example</a></h1>
+                    <pre>&#60;ul class=&#34;dropdown&#34; id=&#34;dropdown&#34;&#62;&#10;&#60;li&#62;&#10;    &#60;a href=&#34;#&#34;&#62;menuHarmony.js&#60;/a&#62;&#10;    &#60;ul&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#menuHarmonyDemo&#34;&#62;demo&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#menuHarmonyExample&#34;&#62;example&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;    &#60;/ul&#62;&#10;&#60;/li&#62;&#10;&#60;li&#62;&#10;    &#60;a href=&#34;#&#34;&#62;menuTab.js&#60;/a&#62;&#10;    &#60;ul&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#menuTabDemo&#34;&#62;demo&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#menuTabExample&#34;&#62;example&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;    &#60;/ul&#62;&#10;&#60;/li&#62;&#10;&#60;li&#62;&#10;    &#60;a href=&#34;#&#34;&#62;carouselImg.js&#60;/a&#62;&#10;    &#60;ul&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#carouselImgDemo&#34;&#62;demo&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#carouselImgExample&#34;&#62;example&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;    &#60;/ul&#62;&#10;&#60;/li&#62;&#10;&#60;li&#62;&#10;    &#60;a href=&#34;#&#34;&#62;imageRotator.js&#60;/a&#62;&#10;    &#60;ul&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#imageRotatorDemo&#34;&#62;demo&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;        &#60;li&#62;&#10;            &#60;a href=&#34;#imageRotatorExample&#34;&#62;example&#60;/a&#62;                        &#10;        &#60;/li&#62;&#10;    &#60;/ul&#62;&#10;&#60;/li&#62;&#10;&#60;/ul&#62;&#10;&#60;script&#62;&#10;new Harmony(&#39;dropdown&#39;);&#10;&#60;/script&#62;</pre>
+                </section>
+            </article>
+            <article>
+                <header>
+                    <h1><a id="menuTab" href="#menuTab">menuTab.js</a></h1>
+                </header>
+                <section>
+                    <h1><a id="menuTabDemo" href="#menuTabDemo">Demo</a></h1>
+                    <ul class="tab" id="tab">
+                        <li>
+                            <a href="#">____1____</a>
+                        </li>
+                        <li>
+                            <a href="#">____2____</a>
+                        </li>
+                        <li>
+                            <a href="#">____3____</a>
+                        </li>
+                    </ul>
+                    <div id="tabDivs">
+                        <div>____1____</div>
+                        <div>____2____</div>
+                        <div>____3____</div>
+                    </div>
+                </section>
+                <section>
+                    <h1><a id="menuTabExample" href="#menuTabExample">Example</a></h1>
+                    <pre>&#60;ul class=&#34;tab&#34; id=&#34;tab&#34;&#62;&#10;    &#60;li&#62;&#10;        &#60;a href=&#34;#&#34;&#62;____1____&#60;/a&#62;&#10;    &#60;/li&#62;&#10;    &#60;li&#62;&#10;        &#60;a href=&#34;#&#34;&#62;____2____&#60;/a&#62;&#10;    &#60;/li&#62;&#10;    &#60;li&#62;&#10;        &#60;a href=&#34;#&#34;&#62;____3____&#60;/a&#62;&#10;    &#60;/li&#62;&#10;&#60;/ul&#62;&#10;&#60;div id=&#34;tabDivs&#34;&#62;&#10;    &#60;div&#62;____1____&#60;/div&#62;&#10;    &#60;div&#62;____2____&#60;/div&#62;&#10;    &#60;div&#62;____3____&#60;/div&#62;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;new Tab(&#39;tab&#39;,&#39;tabDivs&#39;);&#10;&#60;/script&#62;</pre>
+                </section>
+            </article>
+            <article>
+                <header>
+                    <h1><a id="carouselImg" href="#carouselImg">carouselImg.js</a></h1>
+                </header>
+                <section>
+                    <h1><a id="carouselImgDemo" href="#carouselImgDemo">Demo</a></h1>
+                    <div id="carouselAnim">
+
+                    </div>
+                    <div id="carousel">
+                        <img src="img/natur001.jpg" title="img/natur001.jpg" alt="Lake" width="800" height="522" data-longdesc="img/natur001.jpg" data-skit-button-text="Lake &raquo;" data-skit-button-href="#"/>
+                        <img src="img/natur005.jpg" title="img/natur005.jpg" alt="Mountains" width="800" height="522" data-longdesc="img/natur005.jpg" data-skit-button-text="Mountains &raquo;" data-skit-button-href="#" />
+                        <img src="img/natur019.jpg" title="img/natur019.jpg" alt="Forest" width="800" height="522" data-longdesc="img/natur019.jpg" data-skit-button-text="Forest &raquo;" data-skit-button-href="#" />
+                    </div>
+                </section>
+                <section>
+                    <h1><a id="carouselImgExample" href="#carouselImgExample">Example</a></h1>
+                    <pre>&#60;div id=&#34;carouselAnim&#34;&#62;&#10;&#10;&#60;/div&#62;&#10;&#60;div id=&#34;carousel&#34;&#62;&#10;    &#60;img src=&#34;img/natur001.jpg&#34; title=&#34;img/natur001.jpg&#34; alt=&#34;Lake&#34; data-longdesc=&#34;img/natur001.jpg&#34; data-skit-button-text=&#34;Lake &#38;raquo;&#34; data-skit-button-href=&#34;#&#34;/&#62;&#10;    &#60;img src=&#34;img/natur005.jpg&#34; title=&#34;img/natur005.jpg&#34; alt=&#34;Mountains&#34;  data-longdesc=&#34;img/natur005.jpg&#34; data-skit-button-text=&#34;Mountains &#38;raquo;&#34; data-skit-button-href=&#34;#&#34; /&#62;&#10;    &#60;img src=&#34;img/natur019.jpg&#34; title=&#34;img/natur019.jpg&#34; alt=&#34;Forest&#34;  data-longdesc=&#34;img/natur019.jpg&#34; data-skit-button-text=&#34;Forest &#38;raquo;&#34; data-skit-button-href=&#34;#&#34; /&#62;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;    new Carousel(&#39;carousel&#39;,{&#10;        containerToRenderId:&#39;carouselAnim&#39;,&#10;        bgPosition: &#39;center&#39;,&#10;        displayTime: 10&#10;    });  &#10;&#60;/script&#62;</pre>
+                </section>
+            </article>
+        </section>
+        <footer class="footer">
+            <nav>  
+                <ul>  
+                    <li><a href="http://github.com/Bombaharris/js-gui-classes">js-gui-classes@github</a></li>
+                </ul>  
+            </nav>  
+        </footer>
+        <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.1.0/prototype.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js"></script>
+        <script src="../menuHarmony.js"></script>
+        <script src="../menuTab.js"></script>
+        <script src="../carouselImg.js"></script>
+        <script>
+            new Harmony('dropdown');
+            new Tab('tab','tabDivs');
+            new Carousel('carousel',{
+                containerToRenderId:'carouselAnim',
+                bgPosition: 'center',
+                displayTime: 10
+            });  
+        </script>
+    </body>
+</html>

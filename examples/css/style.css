@@ -1,0 +1,271 @@
+/* --------------------------------------------------------------
+
+   style.css
+   * Sets up basic style.
+
+-------------------------------------------------------------- */
+
+/**************************************/
+/*              COLOR SCHEME          */
+/**************************************/
+/*
+
+113F8C
+Hex
+17/63/140
+RGB
+
+01A4A4
+Hex
+1/164/164
+RGB
+
+00A1CB
+Hex
+0/161/203
+RGB
+
+61AE24
+Hex
+97/174/36
+RGB
+
+D0D102
+Hex
+208/209/2
+RGB
+
+32742C
+Hex
+50/116/44
+RGB
+
+D70060
+Hex
+215/0/96
+RGB
+
+E54028
+Hex
+229/64/40
+RGB
+
+F18D05
+Hex
+241/141/5
+RGB
+
+616161
+Hex
+97/97/97
+RGB
+
+*/
+
+/**************************************/
+/*              GLOBALS               */
+/**************************************/
+
+header.header,section.content,footer.footer {
+    margin: 0 auto;
+    width:70%;
+}
+h1 {
+    border-bottom: 1px solid #616161;
+    color:#616161;
+    padding: 0.50em 0 0.50em 0;
+}
+h1 a[id], h1 a[id]:hover {
+    color:#616161;
+    display: block;
+    text-decoration: none;
+}
+h1 a[id]:before {
+    content:"\2693\0020";
+    color:#616161;
+}
+h1 a[id]:hover:before {
+    content:"\2693\0020";
+    color:#F18D05;
+}
+pre {
+    border:1px dashed #616161;
+    padding: 0.50em;
+}
+section header h1 {
+    font-size: 2em; 
+    margin-bottom: 0.75em;
+}
+section section h1{
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 1.0em;
+}
+
+footer nav ul,footer nav li {
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+footer nav li {
+    float:left;
+    text-align: center;
+    width: 100%;
+}
+footer nav li a {
+    background: #616161;
+    color: #FFF;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+footer nav li a:hover {
+    background: #F18D05;
+    color: #FFF;
+}
+/**************************************/
+/*             menuHarmony.js         */
+/**************************************/
+
+ul.dropdown {
+    background: #32742C;
+    display: block;
+    overflow:visible;
+}
+ul.dropdown ul {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+}
+ul.dropdown,ul.dropdown li{
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.dropdown a {
+    color: #FFF;
+    display: block;
+    padding: 0.50em 0 0.5em 1.5em;
+    text-decoration: none;
+}
+ul.dropdown ul a {
+    background: #61AE24;
+    padding: 0.50em 0 0.5em 2.00em;
+}
+ul.dropdown ul a:hover {
+    background: #D0D102;
+}
+ul.dropdown a:hover,ul.dropdown a.selected {
+    background: #61AE24;
+    color: #FFF;
+    cursor: pointer;
+}
+/**************************************/
+/*             menuTab.js             */
+/**************************************/
+
+ul.tab {
+    background: #32742C;
+    color: #FFF;
+    margin: 0 0 0 0;
+    padding: 0;
+    list-style: none;
+    list-style-type: none;
+    overflow: hidden;
+    width:100%;
+}
+.tab li  {
+    float: left;
+    text-align: center;
+}
+.tab li *{
+    color:#FFF;
+    display: block;
+    font-weight: bold;
+    padding: 0.60em 1.0em 0.60em 1.0em;
+}
+.tab li :hover,.tab li .selected{
+    background: #61AE24;
+    color:#FFF;
+    cursor: pointer;
+}
+#tabDivs div {
+    background: #D0D102;
+    color:#FFF;
+    font-size: 4.0em;
+    text-align: center;
+}
+/**************************************/
+/*            carouselImg.js          */
+/**************************************/
+.boxCarouselContent {
+    opacity: 0.80;
+}
+#carouselAnim, .boxCarousel {
+    background:transparent;
+    height: 522px;
+    margin: 0 auto;
+    position: relative;
+    width: 800px;
+}
+#carouselAnim h1,.boxCarouselContent h1 {
+    border: none;
+    color:#FFF;
+    font-size: 1.5em;
+    margin:0 0 0.25em 0.75em;
+}
+.boxAnimContent, .boxCarouselContent {
+    background: #32742C;
+    bottom:3.5em;  
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+.boxAnimContent p, .boxCarouselContent p {
+    clear: both;
+    color:#FFF;
+    margin:0 0 0.50em 1.00em;
+}
+.boxAnimButton, .boxAnimButton:hover, .boxCarouselButton, .boxCarouselButton:hover {
+    color: #FFF;
+    display: block;
+    padding: 0 0 1.0em 1.0em;
+}
+.boxAnimButton span,.boxCarouselButton span {
+    background:#FFF;
+    color: #FFF;
+    display: block;
+    padding: 0.25em;
+}
+.boxAnimButton span:before, .boxCarouselButton span:before {
+    content:"\2794\0020|\0020"
+}
+#carouselAnim ul,.boxCarouselNav {
+    background: #61AE24;
+    bottom:0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-decoration: none;
+    width: 100%;
+}
+#carouselAnim ul li, .boxCarouselNav li {
+    float: left;
+    width: auto;
+}
+#carouselAnim ul li a, .boxCarouselNav li a {
+    background: #61AE24;
+    color:#FFF;
+    display: block;
+    font-weight: bold;
+    padding: 1.00em;
+    text-decoration: none;
+}
+#carouselAnim ul li a:hover,#carouselAnim ul li.selected a, .boxCarouselNav li a:hover, .boxCarouselNav li.selected a {
+    background: #32742C;
+    color: #FFF;
+    cursor: pointer;
+}
