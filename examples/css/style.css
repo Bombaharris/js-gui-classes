@@ -103,11 +103,11 @@ h1 a[id], h1 a[id]:hover {
     text-decoration: none;
 }
 h1 a[id]:before {
-    content:"\2693\0020";
+    content:"\00B6\0020";
     color:#616161;
 }
-h1 a[id]:hover:before {
-    content:"\2693\0020";
+h1 a[id]:hover:before,h1 a[id]:active:before, h1 a[id]:focus:before  {
+    content:"\00B6\0020";
     color:#F18D05;
 }
 pre {
@@ -196,7 +196,7 @@ ul.dropdown ul a {
 ul.dropdown ul a:hover {
     background: #D0D102;
 }
-ul.dropdown a:hover,ul.dropdown a.selected {
+ul.dropdown a:hover {
     background: #61AE24;
     color: #FFF;
     cursor: pointer;

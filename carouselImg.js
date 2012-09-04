@@ -34,15 +34,15 @@ var Carousel = Class.create({
     },
     initOptions: function(options) {
         this.options = {
-            containerToRenderId: 'carousel',
+            containerToRenderId: 'carouselAnim',
             menuClassName: 'boxCarouselNav',
             activeClassName:'selected',
             boxClassName:'boxCarousel',
             contentClassName:'boxCarouselContent',
             buttonClassName:'boxCarouselButton',
             bgPosition:'left center',
-            displayTime: 10,
-            behaviour: 'change'
+            behaviour: 'change',
+            behaviourDuration: 10
         };
         Object.extend(this.options, options || { });
     },
@@ -60,7 +60,7 @@ var Carousel = Class.create({
         this.observeNavigation();
     },
     start: function() {
-        this.pe = new PeriodicalExecuter(this.renderAll.bind(this),this.options.displayTime);
+        this.pe = new PeriodicalExecuter(this.renderAll.bind(this),this.options.behaviourDuration);
     },
     stop:function() {
         this.pe.stop();
@@ -92,10 +92,10 @@ var Carousel = Class.create({
         });
         this.carouselBox.insert({
             top:this.carouselContent
-            });
+        });
         this.container.insert({
             top:this.carouselBox
-            });
+        });
         this.skitHeader = new Element('h1');
         
         this.skitText = new Element('p');

@@ -30,7 +30,8 @@ var Harmony = Class.create({
         this.options = {
             menuClassName: 'dropdown',
             activeClassName:'selected',
-            behavior: 'slide'
+            behavior: 'slide',
+            behaviorDuration: 0.5
         };
         Object.extend(this.options, options || { });
     },
@@ -68,7 +69,7 @@ var Harmony = Class.create({
             case 'slide':
             default:
                 Effect.SlideDown(this.selectedUL, {
-                    duration: 0.5
+                    duration: this.options.behaviorDuration
                 });
                 break;
         }
