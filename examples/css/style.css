@@ -65,8 +65,20 @@ RGB
 /**************************************/
 /*              GLOBALS               */
 /**************************************/
+body {
+    font-family: "Lato","Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
 .header {
     padding:1.0em 0 1.0em 0;
+    position: relative;
+}
+.header nav{
+    display: block;
+    clear:both;
 }
 header.header h1 {
     border: none;
@@ -84,13 +96,16 @@ header.header h2 {
 header.header h3 {
     border: none;
     color:#616161;
-    font-size: 1em; 
-    font-style: italic;
-    margin: 0.50em 0 1.25em 0;
+    float: right;
+    font-size: 1.0em; 
+    font-style: normal;
+    margin: -1.0em 0 1.25em 0;
+    text-align: right;
 }
 header.header,section.content,footer.footer {
     margin: 0 auto;
     width:80%;
+    max-width: 950px;
 }
 h1 {
     border-bottom: 1px solid #616161;
@@ -111,8 +126,9 @@ h1 a[id]:hover:before,h1 a[id]:active:before, h1 a[id]:focus:before  {
     color:#F18D05;
 }
 pre {
-    border:1px dashed #616161;
+    border:1px dotted #616161;
     padding: 0.50em;
+    border-left: 0.25em solid #616161;
 }
 section header h1 {
     font-size: 2em; 
@@ -244,10 +260,11 @@ ul.tab {
 }
 #carouselAnim, .boxCarousel {
     background:transparent;
-    height: 522px;
+    height:40em;
+    max-width:100%;
     margin: 0 auto;
     position: relative;
-    width: 800px;
+    width: 60em;
 }
 #carouselAnim h1,.boxCarouselContent h1 {
     border: none;
