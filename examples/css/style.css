@@ -307,7 +307,7 @@ ul.tab {
 .boxCarouselButtonPause:hover,.boxCarouselButtonPlay:hover {
     opacity: 1.0;
 }
-.boxAnimButton, .boxAnimButton:hover, .boxCarouselButton, .boxCarouselButton:hover {
+.boxAnimButton, .boxAnimButton:hover, .boxCarouselButton, .boxCarouselButton:hover, .boxCarouselButton:active, .boxCarouselButton:focus {
     color: #FFF;
     display: block;
     padding: 0 0 1.0em 0.50em;
