@@ -40,6 +40,10 @@ var Carousel = Class.create({
             boxClassName:'boxCarousel',
             contentClassName:'boxCarouselContent',
             buttonClassName:'boxCarouselButton',
+            buttonPauseClassName:'boxCarouselButtonPause',
+            buttonPlayClassName:'boxCarouselButtonPlay',
+            buttonPauseText:'pause',
+            buttonPlayText:'play',
             bgPosition:'left center',
             behaviour: 'change',
             behaviourDuration: 10
@@ -62,10 +66,21 @@ var Carousel = Class.create({
     start: function() {
         this.pe = new PeriodicalExecuter(this.renderAll.bind(this),this.options.behaviourDuration);
     },
-    stop:function() {
+    stop: function() {
         this.pe.stop();
+        this.pauseButton.hide();
+        this.playButton.show();
+    },
+    restart: function() {
+        this.pe.registerCallback();
+        this.pauseButton.show();
+        this.playButton.hide();
     },
     renderBg: function(index) {
+        this.container.setStyle({
+            backgroundImage: "url("+this.elements[index].readAttribute('src')+")",
+            backgroundPosition:this.options.bgPosition
+        });
         switch(this.options.behaviour) {
             case 'fade':
                 this.container.fade({
@@ -78,10 +93,6 @@ var Carousel = Class.create({
             default:
                 break;
         }
-        this.container.setStyle({
-            backgroundImage: "url("+this.elements[index].readAttribute('src')+")",
-            backgroundPosition:this.options.bgPosition
-        });
     },
     buildContent: function() {
         this.carouselBox = new Element('div',{
@@ -103,10 +114,21 @@ var Carousel = Class.create({
         this.skitButton = new Element('a',{
             'class':this.options.buttonClassName
         });
-
+        this.pauseButton = new Element('button',{
+            'class':this.options.buttonPauseClassName
+        }).insert(this.options.buttonPauseText);
+        this.playButton = new Element('button',{
+            'class':this.options.buttonPlayClassName
+        }).insert(this.options.buttonPlayText);
+        
+        this.playButton.hide();
+        
         this.carouselContent.insert(this.skitHeader);
         this.carouselContent.insert(this.skitText);
         this.carouselContent.insert(this.skitButton);
+        
+        this.carouselBox.insert(this.pauseButton);
+        this.carouselBox.insert(this.playButton);
         
         this.fillContent(this.index);
     },
@@ -143,6 +165,12 @@ var Carousel = Class.create({
                 }.bind(this));
                 element.addClassName(this.options.activeClassName);
             }.bind(this));
+        }.bind(this));
+        this.pauseButton.on('click',function () {
+            this.stop();
+        }.bind(this));
+        this.playButton.on('click',function () {
+            this.restart();
         }.bind(this));
     },
     updateNavigation: function(index) {

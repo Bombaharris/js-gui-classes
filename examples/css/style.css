@@ -176,6 +176,9 @@ section section h1{
     background: #F18D05;
     color: #FFF;
 }
+#dropdown,#tabDivs,#carouselAnim {
+    margin-bottom: 1.0em;
+}
 /**************************************/
 /*             menuHarmony.js         */
 /**************************************/
@@ -260,7 +263,7 @@ ul.tab {
 }
 #carouselAnim, .boxCarousel {
     background:transparent;
-    height:40em;
+    height:38em;
     max-width:100%;
     margin: 0 auto;
     position: relative;
@@ -283,6 +286,22 @@ ul.tab {
     clear: both;
     color:#FFF;
     margin:0 0 0.50em 1.00em;
+}
+.boxCarouselButtonPause,.boxCarouselButtonPlay {
+    background: #32742C;
+    border: none;
+    bottom: 0;
+    color: #FFF;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 6.0em;
+    z-index: 999;
+}
+.boxCarouselButtonPause:hover,.boxCarouselButtonPlay:hover {
+    opacity: 0.8;
 }
 .boxAnimButton, .boxAnimButton:hover, .boxCarouselButton, .boxCarouselButton:hover {
     color: #FFF;
