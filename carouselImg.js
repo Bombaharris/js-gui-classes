@@ -133,7 +133,7 @@ var Carousel = Class.create({
         this.fillContent(this.index);
     },
     fillContent: function(index) {
-        this.skitHeader.update(this.elements[index].readAttribute('alt'));
+        this.skitHeader.update(this.elements[index].readAttribute('title'));
         this.skitText.update(this.elements[index].readAttribute('data-longdesc'));
         this.skitButton.writeAttribute('href',this.elements[index].readAttribute('data-skit-button-href'));
         this.skitButton.update(this.elements[index].readAttribute('data-skit-button-text'));
