@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* --------------------------------------------------------------
 
    style.css
@@ -80,6 +81,28 @@ footer, header, hgroup, menu, nav, section {
     display: block;
     clear:both;
 }
+.header nav ul,.header nav li {
+    list-style: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.header nav li {
+    display: inline;
+    margin: 0 0.50em 0 0;
+}
+.header nav li a {
+    background: #616161;
+    color: #FFF;
+    font-weight: bold;
+    padding: 0.50em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.header nav li a:hover {
+    background: #F18D05;
+    color: #FFF;
+}
 header.header h1 {
     border: none;
     display: inline;
@@ -142,12 +165,6 @@ section section h1{
 .footer {
     padding:1.0em 0 1.0em 0;
 }
-.footer nav ul,.footer nav li,.header nav ul,.header nav li {
-    list-style: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
 .footer p {
     background: #616161;
     color: #FFF;
@@ -160,23 +177,7 @@ section section h1{
 .footer a:hover {
     color: #F18D05;
 }
-.footer nav li, .header nav li {
-    display: inline;
-    margin: 0 0.50em 0 0;
-}
-.footer nav li a, .header nav li a {
-    background: #616161;
-    color: #FFF;
-    font-weight: bold;
-    padding: 0.50em;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-.footer nav li a:hover,.header nav li a:hover {
-    background: #F18D05;
-    color: #FFF;
-}
-#dropdown,#tabDivs,#carouselAnim {
+#dropdown,#tabDivs,#carouselAnim,#interval {
     margin-bottom: 1.0em;
 }
 /**************************************/
@@ -211,6 +212,7 @@ ul.dropdown a {
 ul.dropdown ul a {
     background: #61AE24;
     padding: 0.50em 0 0.5em 2.00em;
+    text-transform: lowercase;
 }
 ul.dropdown ul a:hover {
     background: #D0D102;
@@ -347,4 +349,48 @@ ul.tab {
     background: #32742C;
     color: #FFF;
     cursor: pointer;
+}
+/**************************************/
+/*             intervalInputs.js      */
+/**************************************/
+#interval {
+    background: #32742C;
+    padding: 1.0em;
+}
+#interval legend {
+    color: #FFF;
+    display: block;
+    font-size: 1.5em;
+    width: 100%;
+}
+.interval {
+    background: #32742C;
+    margin-bottom: 1.0em;
+}
+.interval:after {
+    content:"\0020";
+    clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+    overflow:hidden;
+}
+#interval label {
+    color: #FFF;
+    float:left;
+    font-size: 1.55em;
+    padding: 0 1.00em 0 0;
+}
+#interval input{
+    padding: 0 0.20em 0 0.20em;
+    font-size: 1.75em;
+    background: #61AE24;
+    border:1px solid #D0D102;
+    color: #FFF;
+    text-align: center;
+}
+.intervalDiv {
+    color: #FFF;
+    font-size:1.55em;
+    font-weight: bolder;
 }

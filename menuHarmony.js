@@ -1,5 +1,5 @@
 /*  
-    MenuHarnony.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
+    menuHarmony.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
     http://github.com/Bombaharris/js-gui-classes
     Rafał Zielonka
     Varsion 1.0 (2012-06-19)
@@ -22,7 +22,6 @@
 var Harmony = Class.create({
     initialize: function(menuId, options) {
         this.menu = $(menuId);
-        this.initialState = true;
         this.initOptions(options);
         this.behave();
     },
@@ -41,11 +40,10 @@ var Harmony = Class.create({
                 display: 'none'
             });
             element.down('a').observe('click', function(event) {
-                (this.selectedA == Event.element(event)) ? this.initialState = true : Event.stop(event);
-                this.selectedA = Event.element(event);
-                this.selectedUL = Event.element(event).next('ul');
+                Event.stop(event);
+                this.selectedA = event.element();
+                this.selectedUL = event.element().next('ul');
                 this.uncollapseCurrentActive();
-                this.initialState = false;
             }.bind(this));
         }.bind(this));
     },

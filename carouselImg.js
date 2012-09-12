@@ -1,5 +1,5 @@
 /*  
-    CarouselImg.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
+    carouselImg.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
     http://github.com/Bombaharris/js-gui-classes
     Rafał Zielonka
     Varsion 1.0 (2012-06-19)
@@ -114,9 +114,11 @@ var Carousel = Class.create({
         this.skitButton = new Element('a',{
             'class':this.options.buttonClassName
         });
+        
         this.pauseButton = new Element('button',{
             'class':this.options.buttonPauseClassName
         }).insert(this.options.buttonPauseText);
+        
         this.playButton = new Element('button',{
             'class':this.options.buttonPlayClassName
         }).insert(this.options.buttonPlayText);

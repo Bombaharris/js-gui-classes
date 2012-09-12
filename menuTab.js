@@ -1,5 +1,5 @@
 /*  
-    menuTab.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
+    menuTabs.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
     http://github.com/Bombaharris/js-gui-classes
     Rafał Zielonka
     Varsion 1.0 (2012-06-19)
@@ -41,9 +41,9 @@ var Tab = Class.create({
     behave: function() {
         this.menu.childElements().each(function(element,index) {
             element.down().observe('click', function(event) {
-                Event.stop(event);
+                event.stop();
                 this.hideLastActive();
-                this.selectedA = Event.element(event);
+                this.selectedA = event.element();
                 this.selectedDIV = this.menuequivalents[index];
                 this.showCurrentActive();
             }.bind(this));
