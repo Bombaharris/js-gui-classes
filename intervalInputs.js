@@ -42,10 +42,11 @@ var IntervalInputs = Class.create({
         this.containers.each(function(container) {
             var inputs = container.select('input');
             inputs.each(function(input) {
+                (input.getStyle('font-size').endsWith('px')) ? this.intervalUnitTmp = 'px' : this.intervalUnitTmp = this.options.intervalUnit;
                 var inputFontSize = ( input.getStyle('font-size').empty() ) ? 18 : parseInt(input.getStyle('font-size'));
                 var inputSize = parseInt(input.readAttribute(this.options.scaleAttribute));
                 input.setStyle({
-                    'width' : parseInt(inputSize * inputFontSize)+""+this.options.intervalUnit,
+                    'width' : parseInt(inputSize * inputFontSize)+""+this.intervalUnitTmp,
                     'float': "left"
                 });
                 if (input != inputs.last()) {
