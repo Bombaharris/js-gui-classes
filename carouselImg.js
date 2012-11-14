@@ -46,7 +46,11 @@ var Carousel = Class.create({
             buttonPlayText:'play',
             bgPosition:'left center',
             behaviour: 'change',
-            behaviourDuration: 10
+            behaviourDuration: 10,
+            drawSkitHeader: true,
+            drawSkitText: true,
+            drawSkitButton: true,
+            drawPausePlayButton: true
         };
         Object.extend(this.options, options || { });
     },
@@ -125,12 +129,12 @@ var Carousel = Class.create({
         
         this.playButton.hide();
         
-        this.carouselContent.insert(this.skitHeader);
-        this.carouselContent.insert(this.skitText);
-        this.carouselContent.insert(this.skitButton);
+        (this.options.drawSkitHeader) && this.carouselContent.insert(this.skitHeader);
+        (this.options.drawSkitText) && this.carouselContent.insert(this.skitText);
+        (this.options.drawSkitButton) && this.carouselContent.insert(this.skitButton);
         
-        this.carouselBox.insert(this.pauseButton);
-        this.carouselBox.insert(this.playButton);
+        (this.options.drawPausePlayButton) && this.carouselBox.insert(this.pauseButton);
+        (this.options.drawPausePlayButton) && this.carouselBox.insert(this.playButton);
         
         this.fillContent(this.index);
     },

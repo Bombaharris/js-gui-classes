@@ -224,7 +224,7 @@
                 </section>
                 <section>
                     <h1><a id="carouselImgExample" href="#carouselImgExample">Example</a></h1>
-                    <pre>&#60;div id=&#34;carouselAnim&#34;&#62;&#60;/div&#62;&#10;&#60;div id=&#34;carousel&#34;&#62;&#10;    &#60;img src=&#34;img/nature001.jpg&#34; &#10;            title=&#34;Lake&#34; &#10;            alt=&#34;Lake&#34; &#10;            width=&#34;600&#34; height=&#34;450&#34; &#10;            data-longdesc=&#34;&copy; Spudulike&#34; &#10;            data-skit-button-text=&#34;Lake &#38;raquo;&#34; &#10;            data-skit-button-href=&#34;#lake&#34; /&#62;&#10;    &#60;img src=&#34;img/nature002.jpg&#34; &#10;            title=&#34;Mountains&#34; &#10;            alt=&#34;Mountains&#34; &#10;            width=&#34;600&#34; height=&#34;450&#34; &#10;            data-longdesc=&#34;&copy; Dariusz Marcinek&#34; &#10;            data-skit-button-text=&#34;Mountains &#38;raquo;&#34; &#10;            data-skit-button-href=&#34;#mountains&#34; /&#62;&#10;    &#60;img src=&#34;img/nature003.jpg&#34; &#10;            title=&#34;Forest&#34; &#10;            alt=&#34;Forest&#34; &#10;            width=&#34;600&#34; height=&#34;450&#34;&#10;            data-longdesc=&#34;&copy; Dragomir Uzunov&#34; &#10;            data-skit-button-text=&#34;Forest &#38;raquo;&#34; &#10;            data-skit-button-href=&#34;#forest&#34; /&#62;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;new Carousel(&#39;carousel&#39;,{&#10;    containerToRenderId: &#39;carouselAnim&#39;,&#10;    bgPosition: &#39;center&#39;,&#10;    displayTime: 10&#10;});&#10;&#60;/script&#62;</pre>                
+                    <pre>&#60;div id=&#34;carouselAnim&#34;&#62;&#60;/div&#62;&#10;&#60;div id=&#34;carousel&#34;&#62;&#10;    &#60;img src=&#34;img/nature001.jpg&#34; &#10;            title=&#34;Lake&#34; &#10;            alt=&#34;Lake&#34; &#10;            width=&#34;600&#34; height=&#34;450&#34; &#10;            data-longdesc=&#34;&copy; Spudulike&#34; &#10;            data-skit-button-text=&#34;Lake &#38;raquo;&#34; &#10;            data-skit-button-href=&#34;#lake&#34; /&#62;&#10;    &#60;img src=&#34;img/nature002.jpg&#34; &#10;            title=&#34;Mountains&#34; &#10;            alt=&#34;Mountains&#34; &#10;            width=&#34;600&#34; height=&#34;450&#34; &#10;            data-longdesc=&#34;&copy; Dariusz Marcinek&#34; &#10;            data-skit-button-text=&#34;Mountains &#38;raquo;&#34; &#10;            data-skit-button-href=&#34;#mountains&#34; /&#62;&#10;    &#60;img src=&#34;img/nature003.jpg&#34; &#10;            title=&#34;Forest&#34; &#10;            alt=&#34;Forest&#34; &#10;            width=&#34;600&#34; height=&#34;450&#34;&#10;            data-longdesc=&#34;&copy; Dragomir Uzunov&#34; &#10;            data-skit-button-text=&#34;Forest &#38;raquo;&#34; &#10;            data-skit-button-href=&#34;#forest&#34; /&#62;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;new Carousel(&#39;carousel&#39;,{&#10;    containerToRenderId: &#39;carouselAnim&#39;,&#10;    bgPosition: &#39;center&#39;,&#10;    displayTime: 10,&#10;    drawSkitButton: false&#10;});&#10;&#60;/script&#62;</pre>                
                 </section>
                 <section>
                     <h1><a id="carouselImgSyntax" href="#carouselImgSyntax">Syntax</a></h1>
@@ -257,6 +257,14 @@
                         <dd>Sets rendered div class name attribute, defaults to <code>'boxCarouselContent'</code>.</dd>
                         <dt>containerToRenderId</dt>
                         <dd>Sets id attribute of element where carousel will be rendered, defaults to <code>'carouselAnim'</code>.</dd>
+                        <dt>drawSkitHeader</dt>
+                        <dd>Disable/enable img title tag rendering - boolean, defaults to <code>true</code>.</dd>
+                        <dt>drawSkitText</dt>
+                        <dd>Disable/enable img data-long-desc tag rendering - boolean, defaults to <code>true</code>.</dd>
+                        <dt>drawSkitButton</dt>
+                        <dd>Disable/enable img data-skit-button-text tag rendering - boolean, defaults to <code>true</code>.</dd>
+                        <dt>drawPausePlayButton</dt>
+                        <dd>Disable/enable pause button rendering - boolean, defaults to <code>true</code>.</dd>
                         <dt>menuClassName</dt>
                         <dd>Sets rendered menu class name attribute, defaults to <code>'boxCarouselNav'</code>.</dd>
                     </dl>
@@ -323,7 +331,8 @@
             new Carousel('carousel',{
                 containerToRenderId:'carouselAnim',
                 bgPosition: 'center',
-                displayTime: 10
+                displayTime: 10,
+                drawSkitButton: false
             });
             new IntervalInputs('.interval',{
                 intervalChar: '-',
