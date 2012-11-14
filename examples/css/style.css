@@ -115,15 +115,16 @@ header.header h2 {
     display: inline;
     font-size: 1.5em;
     float: right;
+    margin: 0;
 }
 header.header h3 {
     border: none;
     color:#616161;
+    display: inline;
     float: right;
     font-size: 1.0em; 
     font-style: normal;
     margin: -1.0em 0 1.25em 0;
-    text-align: right;
 }
 header.header,section.content,footer.footer {
     margin: 0 auto;
