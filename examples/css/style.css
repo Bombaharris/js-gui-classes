@@ -105,6 +105,7 @@ footer, header, hgroup, menu, nav, section {
 }
 header.header h1 {
     border: none;
+    color:#616161;
     display: inline;
     font-weight: bolder;
     text-transform: uppercase;
@@ -131,21 +132,21 @@ header.header,section.content,footer.footer {
     width:80%;
     max-width: 950px;
 }
-h1 {
+article h1, article h2 {
     border-bottom: 1px solid #616161;
     color:#616161;
     padding: 0.50em 0 0.50em 0;
 }
-h1 a[id], h1 a[id]:hover {
+h1 a[id], h1 a[id]:hover,h2 a[id], h2 a[id]:hover {
     color:#616161;
     display: block;
     text-decoration: none;
 }
-h1 a[id]:before {
+h1 a[id]:before,h2 a[id]:before  {
     content:"\00B6\0020";
     color:#616161;
 }
-h1 a[id]:hover:before,h1 a[id]:active:before, h1 a[id]:focus:before  {
+h1 a[id]:hover:before,h1 a[id]:active:before, h1 a[id]:focus:before, h2 a[id]:hover:before,h2 a[id]:active:before, h2 a[id]:focus:before  {
     content:"\00B6\0020";
     color:#F18D05;
 }
@@ -158,7 +159,7 @@ section header h1 {
     font-size: 2em; 
     margin-bottom: 0.75em;
 }
-section section h1{
+section section h2{
     font-size: 1.5em;
     line-height: 1;
     margin-bottom: 1.0em;
