@@ -50,7 +50,11 @@ var Carousel = Class.create({
             drawSkitHeader: true,
             drawSkitText: true,
             drawSkitButton: true,
-            drawPausePlayButton: true
+            drawPausePlayButton: true,
+            navigationTextAttr: 'alt',
+            skitHeaderAttr: 'title',
+            skitTextAttr: 'data-longdesc',
+            skitButtonTextAttr: 'data-skit-button-text'
         };
         Object.extend(this.options, options || { });
     },
@@ -139,10 +143,12 @@ var Carousel = Class.create({
         this.fillContent(this.index);
     },
     fillContent: function(index) {
-        this.skitHeader.update(this.elements[index].readAttribute('title'));
-        this.skitText.update(this.elements[index].readAttribute('data-longdesc'));
-        this.skitButton.writeAttribute('href',this.elements[index].readAttribute('data-skit-button-href'));
-        this.skitButton.update(this.elements[index].readAttribute('data-skit-button-text'));
+        (this.options.drawSkitHeader) && this.skitHeader.update(this.elements[index].readAttribute(this.options.skitHeaderAttr));
+        (this.options.drawSkitText) && this.skitText.update(this.elements[index].readAttribute(this.options.skitTextAttr));
+        if (this.options.drawSkitButton) {
+            (Object.isElement(this.elements[index].up('a'))) && this.skitButton.writeAttribute('href',this.elements[index].up('a').readAttribute('href'));
+            this.skitButton.update(this.elements[index].readAttribute(this.options.skitButtonTextAttr));
+        }
     },
     buildNavigation: function() {
         this.carouselNav = new Element('ul',{
@@ -152,7 +158,7 @@ var Carousel = Class.create({
         this.elements.each(function(element) {
             var li = new Element('li');
             var ahref = new Element('a');
-            ahref.update(element.readAttribute('alt'));
+            ahref.update(element.readAttribute(this.options.navigationTextAttr));
             li.insert(ahref);
             this.carouselNav.insert(li);
         }.bind(this));
