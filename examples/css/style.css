@@ -66,31 +66,52 @@ RGB
 /**************************************/
 /*              GLOBALS               */
 /**************************************/
+
 body {
     font-family: 'Lato','Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 .header {
     padding:1.0em 0 1.0em 0;
     position: relative;
 }
-.header nav{
-    display: block;
+
+.header:after {
+    content:"\0020";
     clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+    overflow:hidden;
 }
+
+.header hgroup:after {
+    content:"\0020";
+    clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+    overflow:hidden;
+}
+
 .header nav ul,.header nav li {
     list-style: none;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
 .header nav li {
-    display: inline;
-    margin: 0 0.50em 0 0;
+    display: block;
+    float: left;
+    margin: 0 0.50em 1.00em 0;
 }
+
 .header nav li a {
     background: #616161;
     color: #FFF;
@@ -99,89 +120,114 @@ footer, header, hgroup, menu, nav, section {
     text-decoration: none;
     text-transform: uppercase;
 }
+
 .header nav li a:hover {
     background: #F18D05;
     color: #FFF;
 }
+
 header.header h1 {
     border: none;
     color:#616161;
-    display: inline;
+    display: block;
+    float: left;
     font-weight: bolder;
     text-transform: uppercase;
+    width: 50%;
 }
+
 header.header h2 {
     border: none;
     color:#616161;
-    display: inline;
+    display: block;
     font-size: 1.5em;
     float: right;
+    line-height: 1.0;
     margin: 0;
+    text-align: right;
+    width: 50%;
 }
+
 header.header h3 {
     border: none;
     color:#616161;
-    display: inline;
+    display: block;
     float: right;
     font-size: 1.0em; 
     font-style: normal;
-    margin: -1.0em 0 1.25em 0;
+    margin: 0.50em 0 1.25em 0;
+    text-align: right;
+    width: 50%;
 }
+
 header.header,section.content,footer.footer {
     margin: 0 auto;
     width:80%;
     max-width: 950px;
 }
+
 article h1, article h2 {
     border-bottom: 1px solid #616161;
     color:#616161;
     padding: 0.50em 0 0.50em 0;
 }
+
 h1 a[id], h1 a[id]:hover,h2 a[id], h2 a[id]:hover {
     color:#616161;
     display: block;
     text-decoration: none;
 }
+
 h1 a[id]:before,h2 a[id]:before  {
     content:"\00B6\0020";
     color:#616161;
 }
+
 h1 a[id]:hover:before,h1 a[id]:active:before, h1 a[id]:focus:before, h2 a[id]:hover:before,h2 a[id]:active:before, h2 a[id]:focus:before  {
     content:"\00B6\0020";
     color:#F18D05;
 }
+
 pre {
     border:1px dotted #616161;
     padding: 0.50em;
     border-left: 0.25em solid #616161;
 }
+
 section header h1 {
     font-size: 2em; 
     margin-bottom: 0.75em;
 }
+
 section section h2{
     font-size: 1.5em;
     line-height: 1;
     margin-bottom: 1.0em;
 }
+
 .footer {
     padding:1.0em 0 1.0em 0;
 }
+
 .footer p {
     background: #616161;
     color: #FFF;
     font-weight: 600;
     padding: 0.25em;
 }
+
 .footer a {
     color: #FFF;
 }
+
 .footer a:hover {
     color: #F18D05;
 }
+
 #dropdown,#tabDivs,#carouselAnim,#interval {
     margin-bottom: 1.0em;
 }
+
 /**************************************/
 /*             menuHarmony.js         */
 /**************************************/
@@ -192,18 +238,21 @@ ul.dropdown {
     font-weight: bold;
     overflow:visible;
 }
+
 ul.dropdown ul {
     margin: 0;
     padding: 0;
     font-size: 0.75em;
     font-weight: normal;
 }
+
 ul.dropdown,ul.dropdown li{
     list-style: none;
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
+
 ul.dropdown a {
     color: #FFF;
     display: block;
@@ -211,19 +260,23 @@ ul.dropdown a {
     padding: 0.50em 0 0.5em 1.5em;
     text-decoration: none;
 }
+
 ul.dropdown ul a {
     background: #61AE24;
     padding: 0.50em 0 0.5em 2.00em;
     text-transform: lowercase;
 }
+
 ul.dropdown ul a:hover {
     background: #D0D102;
 }
+
 ul.dropdown a:hover {
     background: #61AE24;
     color: #FFF;
     cursor: pointer;
 }
+
 /**************************************/
 /*             menuTab.js             */
 /**************************************/
@@ -238,33 +291,40 @@ ul.tab {
     overflow: hidden;
     width:100%;
 }
+
 .tab li  {
     float: left;
     text-align: center;
 }
+
 .tab li *{
     color:#FFF;
     display: block;
     font-weight: bold;
     padding: 0.60em 1.0em 0.60em 1.0em;
 }
+
 .tab li :hover,.tab li .selected{
     background: #61AE24;
     color:#FFF;
     cursor: pointer;
 }
+
 #tabDivs div {
     background: #D0D102;
     color:#FFF;
     font-size: 4.0em;
     text-align: center;
 }
+
 /**************************************/
 /*            carouselImg.js          */
 /**************************************/
+
 .boxCarouselContent {
     opacity: 0.80;
 }
+
 #carouselAnim, .boxCarousel {
     background:transparent;
     height:30em;
@@ -273,12 +333,14 @@ ul.tab {
     position: relative;
     width: 45em;
 }
+
 #carouselAnim h1,.boxCarouselContent h1 {
     border: none;
     color:#FFF;
     font-size: 1.25em;
     margin:0 0 0.25em 0.50em;
 }
+
 .boxAnimContent, .boxCarouselContent {
     background: #32742C;
     bottom:2.5em;  
@@ -286,11 +348,13 @@ ul.tab {
     position: absolute;
     width: 100%;
 }
+
 .boxAnimContent p, .boxCarouselContent p {
     clear: both;
     color:#FFF;
     margin:0 0 0.50em 0.50em;
 }
+
 .boxCarouselButtonPause,.boxCarouselButtonPlay {
     background: #32742C;
     border: none;
@@ -308,23 +372,28 @@ ul.tab {
     width: 6.0em;
     z-index: 999;
 }
+
 .boxCarouselButtonPause:hover,.boxCarouselButtonPlay:hover {
     opacity: 1.0;
 }
+
 .boxAnimButton, .boxAnimButton:hover, .boxCarouselButton, .boxCarouselButton:hover, .boxCarouselButton:active, .boxCarouselButton:focus {
     color: #FFF;
     display: block;
     padding: 0 0 1.0em 0.50em;
 }
+
 .boxAnimButton span,.boxCarouselButton span {
     background:#FFF;
     color: #FFF;
     display: block;
     padding: 0.25em;
 }
+
 .boxAnimButton span:before, .boxCarouselButton span:before {
     content:"\2794\0020|\0020"
 }
+
 #carouselAnim ul,.boxCarouselNav {
     background: #61AE24;
     bottom:0;
@@ -335,10 +404,12 @@ ul.tab {
     text-decoration: none;
     width: 100%;
 }
+
 #carouselAnim ul li, .boxCarouselNav li {
     float: left;
     width: auto;
 }
+
 #carouselAnim ul li a, .boxCarouselNav li a {
     background: #61AE24;
     color:#FFF;
@@ -347,28 +418,34 @@ ul.tab {
     padding: 0.50em 0.50em 0.50em 0.50em;
     text-decoration: none;
 }
+
 #carouselAnim ul li a:hover,#carouselAnim ul li.selected a, .boxCarouselNav li a:hover, .boxCarouselNav li.selected a {
     background: #32742C;
     color: #FFF;
     cursor: pointer;
 }
+
 /**************************************/
 /*             intervalInputs.js      */
 /**************************************/
+
 #interval {
     background: #32742C;
     padding: 1.0em;
 }
+
 #interval legend {
     color: #FFF;
     display: block;
     font-size: 1.5em;
     width: 100%;
 }
+
 .interval {
     background: #32742C;
     margin-bottom: 1.0em;
 }
+
 .interval:after {
     content:"\0020";
     clear:both;
@@ -377,12 +454,14 @@ ul.tab {
     visibility:hidden;
     overflow:hidden;
 }
+
 #interval label {
     color: #FFF;
     float:left;
     font-size: 1.55em;
     padding: 0 1.00em 0 0;
 }
+
 #interval input{
     padding: 0 0.20em 0 0.20em;
     font-size: 1.75em;
@@ -391,6 +470,7 @@ ul.tab {
     color: #FFF;
     text-align: center;
 }
+
 .intervalDiv {
     color: #FFF;
     font-size:1.55em;
