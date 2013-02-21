@@ -4,7 +4,7 @@
 Description
 -----------
 
-js-gui-classes It's a Prototype JavaScript Framework based classes build to support front-end developers.
+js-gui-classes It's a Prototype JavaScript framework based libraries for front-end developers.
 
 
 Demo
