@@ -429,6 +429,7 @@ ul.tab {
 .boxCarouselNav li:first-child a {
     margin-left: 1.0em;
 }
+
 #carouselAnim ul li a:hover,#carouselAnim ul li.selected a, .boxCarouselNav li a:hover, .boxCarouselNav li.selected a {
     background: #32742C;
     color: #FFF;
@@ -436,7 +437,7 @@ ul.tab {
 }
 
 .boxCarouselArrowNext {
-    background: #32742C;
+    background: #61AE24;
     text-decoration: none;
     bottom: 0;
     content: '\003E';
@@ -448,7 +449,7 @@ ul.tab {
 }
 
 .boxCarouselArrowPrevious {
-    background: #32742C;
+    background: #61AE24;
     bottom: 0;
     content: '\003C';
     color: #FFF;
@@ -462,6 +463,7 @@ ul.tab {
 .boxCarouselArrowNext:hover,.boxCarouselArrowPrevious:hover {
     color: #FFF;
 }
+
 /**************************************/
 /*             intervalInputs.js      */
 /**************************************/
