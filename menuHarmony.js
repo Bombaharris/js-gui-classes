@@ -2,7 +2,7 @@
     menuHarmony.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
     http://github.com/Bombaharris/js-gui-classes
     Rafał Zielonka
-    Varsion 1.0 (2012-06-19)
+    Version 1.0 (2012-06-19)
 
     Copyright (C) 2012  Rafał Zielonka
 

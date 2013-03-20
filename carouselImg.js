@@ -2,7 +2,7 @@
     carouselImg.js it's a part of js-gui-classes Prototype JavaScript Framework based classes.
     http://github.com/Bombaharris/js-gui-classes
     Rafał Zielonka
-    Varsion 1.0 (2012-06-19)
+    Version 1.1 (2013-03-20)
 
     Copyright (C) 2012  Rafał Zielonka
 
@@ -44,17 +44,22 @@ var Carousel = Class.create({
             buttonPlayClassName:'boxCarouselButtonPlay',
             buttonPauseText:'pause',
             buttonPlayText:'play',
+            buttonNextArrowClassName:'boxCarouselArrowNext',
+            buttonPreviousArrowClassName:'boxCarouselArrowPrevious',
             bgPosition:'left center',
             behaviour: 'change',
             behaviourDuration: 10,
             drawSkitHeader: true,
+            drawSkitSubHeader: true,
             drawSkitText: true,
             drawSkitButton: true,
             drawPausePlayButton: true,
+            drawNav: true,
+            drawNavArrows: true,
             navigationTextAttr: 'alt',
             skitHeaderAttr: 'title',
-            skitTextAttr: 'data-longdesc',
-            skitButtonTextAttr: 'data-skit-button-text'
+            skitSubHeaderAttr: 'alt',
+            skitButtonTextAttr: 'alt'
         };
         Object.extend(this.options, options || { });
     },
@@ -63,6 +68,12 @@ var Carousel = Class.create({
         this.renderBg(this.index);
         this.updateNavigation(this.index);
         (this.index >= this.maxIndex) ? this.index = 0 : this.index++;
+    },
+    renderBackAll: function() {
+        this.fillContent(this.index);
+        this.renderBg(this.index);
+        this.updateNavigation(this.index);
+        (this.index <= 0) ? this.index = this.maxIndex : this.index--;
     },
     walk: function() {
         this.buildContent();
@@ -85,6 +96,7 @@ var Carousel = Class.create({
         this.playButton.hide();
     },
     renderBg: function(index) {
+        this.index = index;
         this.container.setStyle({
             backgroundImage: "url("+this.elements[index].readAttribute('src')+")",
             backgroundPosition:this.options.bgPosition
@@ -116,6 +128,7 @@ var Carousel = Class.create({
             top:this.carouselBox
         });
         this.skitHeader = new Element('h1');
+        this.skitSubHeader = new Element('h2');
         
         this.skitText = new Element('p');
 
@@ -134,6 +147,7 @@ var Carousel = Class.create({
         this.playButton.hide();
         
         (this.options.drawSkitHeader) && this.carouselContent.insert(this.skitHeader);
+        (this.options.drawSkitSubHeader) && this.carouselContent.insert(this.skitSubHeader);
         (this.options.drawSkitText) && this.carouselContent.insert(this.skitText);
         (this.options.drawSkitButton) && this.carouselContent.insert(this.skitButton);
         
@@ -143,8 +157,17 @@ var Carousel = Class.create({
         this.fillContent(this.index);
     },
     fillContent: function(index) {
-        (this.options.drawSkitHeader) && this.skitHeader.update(this.elements[index].readAttribute(this.options.skitHeaderAttr));
-        (this.options.drawSkitText) && this.skitText.update(this.elements[index].readAttribute(this.options.skitTextAttr));
+        this.index = index;
+        if (this.options.drawSkitHeader) {
+            this.skitHeader.update((Object.isElement(this.elements[index].up('a'))) ? this.elements[index].up('a').readAttribute(this.options.skitHeaderAttr) : this.elements[index].readAttribute(this.options.skitHeaderAttr));
+        }
+        if (this.options.drawSkitSubHeader) {
+            this.skitSubHeader.update(this.elements[index].readAttribute(this.options.skitSubHeaderAttr));
+        }
+        if (this.options.drawSkitText){
+            (Object.isElement(this.elements[index].up('a').next('figcaption'))) && this.skitText.update(this.elements[index].up('a').next('figcaption').innerHTML);
+            (Object.isElement(this.elements[index].next('figcaption'))) && this.skitText.update(this.elements[index].next('figcaption').innerHTML);
+        }
         if (this.options.drawSkitButton) {
             (Object.isElement(this.elements[index].up('a'))) && this.skitButton.writeAttribute('href',this.elements[index].up('a').readAttribute('href'));
             this.skitButton.update(this.elements[index].readAttribute(this.options.skitButtonTextAttr));
@@ -161,21 +184,34 @@ var Carousel = Class.create({
             ahref.update(element.readAttribute(this.options.navigationTextAttr));
             li.insert(ahref);
             this.carouselNav.insert(li);
-        }.bind(this));
-        this.carouselBox.insert({
-            bottom:this.carouselNav
+        }.bind(this));        
+        if (this.options.drawNav) {
+            this.carouselBox.insert({
+                bottom:this.carouselNav
+            });
+        }
+        this.arrowNext = new Element('a',{
+            'class':this.options.buttonNextArrowClassName
         });
+        this.arrowPrevious = new Element('a',{
+            'class':this.options.buttonPreviousArrowClassName
+        });
+        
+        if (this.options.drawNavArrows) {
+            this.carouselBox.insert({
+                bottom:this.arrowNext
+            });
+            this.carouselBox.insert({
+                bottom:this.arrowPrevious
+            });
+        }
     },
     observeNavigation: function() {
         this.carouselNav.childElements().each(function(element,index) {
-            element.down('a').observe("click", function() {             
+            element.down('a').on('click', function() {             
                 this.fillContent(index);
                 this.renderBg(index);
-                this.index = index +1;
-                this.carouselNav.childElements().each(function(element) {
-                    element.removeClassName(this.options.activeClassName);
-                }.bind(this));
-                element.addClassName(this.options.activeClassName);
+                this.updateNavigation(index);
             }.bind(this));
         }.bind(this));
         this.pauseButton.on('click',function () {
@@ -184,8 +220,15 @@ var Carousel = Class.create({
         this.playButton.on('click',function () {
             this.restart();
         }.bind(this));
+        this.arrowNext.on('click',function () {
+            this.renderAll();
+        }.bind(this));
+        this.arrowPrevious.on('click',function () {
+            this.renderBackAll();
+        }.bind(this));
     },
     updateNavigation: function(index) {
+        this.index = index;
         $(this.navigationId).childElements().invoke('removeClassName',this.options.activeClassName)
         $(this.navigationId).childElements()[index].addClassName(this.options.activeClassName);
     }
