@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <title>js-gui-classes - JavaScript Menu Accordion, Tabs, Carousel ...</title>
         <meta name="description" content="Prototype JavaScript framework based libraries for front-end developers">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="user-scalable=yes, maximum-scale=3.0, minimum-scale=0.4">
         <link rel="icon" href="favicon.ico">
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/typography.css">
@@ -195,46 +195,31 @@
                 </header>
                 <section>
                     <h2><a id="carouselImgDemo" href="#carouselImgDemo">Demo</a></h2>
-                    <div id="carouselAnim"></div>
-                    <div id="carousel">
-                        <a href="#lake">
-                            <img src="img/nature001.jpg" 
-                                 title="Lake" 
-                                 alt="Lake" 
-                                 width="600" height="450" 
-                                 data-longdesc="&copy; Spudulike" 
-                                 data-skit-button-text="Lake &raquo;" 
-                                 data-skit-button-href="#lake" />
-                        </a>
-                        <a href="#mountain">
-                            <img src="img/nature002.jpg" 
-                                 title="Mountains" 
-                                 alt="Mountains" 
-                                 width="600" height="450" 
-                                 data-longdesc="&copy; Dariusz Marcinek" 
-                                 data-skit-button-text="Mountains &raquo;" />
-                        </a>
-                        <a href="#forest">
-                            <img src="img/nature003.jpg" 
-                                 title="Forest" 
-                                 alt="Forest" 
-                                 width="600" height="450"
-                                 data-longdesc="&copy; Dragomir Uzunov" 
-                                 data-skit-button-text="Forest &raquo;" />
-                        </a>
-                    </div>
-                    <script>
-                        new Carousel('carousel',{
-                            containerToRenderId:'carouselAnim',
-                            bgPosition: 'center',
-                            displayTime: 10,
-                            drawSkitButton: true
-                        });
-                    </script>
+                    <section id="carouselAnim"></section>
+                    <article id="carousel">
+                        <figure>
+                            <a href="#lake" title="Lake">
+                                <img src="img/nature001.jpg" alt="Sunset at lake" />
+                            </a>
+                            <figcaption>&copy; Spudulike</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="#mountains" title="Mountains">
+                                <img src="img/nature002.jpg" alt="Mountain house" />
+                            </a>
+                            <figcaption>&copy; Dariusz Marcinek</figcaption>
+                        </figure>
+                        <figure>
+                            <a href="#forest" title="Forest">
+                                <img src="img/nature003.jpg" alt="Forest at night" />
+                            </a>
+                            <figcaption>&copy; Dragomir Uzunov</figcaption>
+                        </figure>
+                    </article>
                 </section>
                 <section>
                     <h2><a id="carouselImgExample" href="#carouselImgExample">Example</a></h2>
-                    <pre>&#60;div id=&#34;carouselAnim&#34;&#62;&#60;/div&#62;&#10;&#60;div id=&#34;carousel&#34;&#62;&#10;    &#60;a href=&#34;#lake&#34;&#62;&#10;        &#60;img src=&#34;img/nature001.jpg&#34; &#10;             title=&#34;Lake&#34; &#10;             alt=&#34;Lake&#34; &#10;             width=&#34;600&#34; height=&#34;450&#34; &#10;             data-longdesc=&#34;&#38;copy; Spudulike&#34; &#10;             data-skit-button-text=&#34;Lake &#38;raquo;&#34; &#10;             data-skit-button-href=&#34;#lake&#34; /&#62;&#10;    &#60;/a&#62;&#10;    &#60;a href=&#34;#mountain&#34;&#62;&#10;        &#60;img src=&#34;img/nature002.jpg&#34; &#10;             title=&#34;Mountains&#34; &#10;             alt=&#34;Mountains&#34; &#10;             width=&#34;600&#34; height=&#34;450&#34; &#10;             data-longdesc=&#34;&#38;copy; Dariusz Marcinek&#34; &#10;             data-skit-button-text=&#34;Mountains &#38;raquo;&#34; /&#62;&#10;    &#60;/a&#62;&#10;    &#60;a href=&#34;#forest&#34;&#62;&#10;        &#60;img src=&#34;img/nature003.jpg&#34; &#10;             title=&#34;Forest&#34; &#10;             alt=&#34;Forest&#34; &#10;             width=&#34;600&#34; height=&#34;450&#34;&#10;             data-longdesc=&#34;&#38;copy; Dragomir Uzunov&#34; &#10;             data-skit-button-text=&#34;Forest &#38;raquo;&#34; /&#62;&#10;    &#60;/a&#62;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;    new Carousel(&#39;carousel&#39;,{&#10;        containerToRenderId:&#39;carouselAnim&#39;,&#10;        bgPosition: &#39;center&#39;,&#10;        displayTime: 10,&#10;        drawSkitButton: true&#10;    });&#10;&#60;/script&#62;</pre>
+                    <pre>&#60;section id=&#34;carouselAnim&#34;&#62;&#60;/section&#62;&#10;&#60;article id=&#34;carousel&#34;&#62;&#10;    &#60;figure&#62;&#10;        &#60;a href=&#34;#lake&#34; title=&#34;Lake&#34;&#62;&#10;            &#60;img src=&#34;img/nature001.jpg&#34; alt=&#34;Sunset at lake&#34; /&#62;&#10;        &#60;/a&#62;&#10;        &#60;figcaption&#62;&#38;copy; Spudulike&#60;/figcaption&#62;&#10;    &#60;/figure&#62;&#10;    &#60;figure&#62;&#10;        &#60;a href=&#34;#mountains&#34; title=&#34;Mountains&#34;&#62;&#10;            &#60;img src=&#34;img/nature002.jpg&#34; alt=&#34;Mountain house&#34; /&#62;&#10;        &#60;/a&#62;&#10;        &#60;figcaption&#62;&#38;copy; Dariusz Marcinek&#60;/figcaption&#62;&#10;    &#60;/figure&#62;&#10;    &#60;figure&#62;&#10;        &#60;a href=&#34;#forest&#34; title=&#34;Forest&#34;&#62;&#10;            &#60;img src=&#34;img/nature003.jpg&#34; alt=&#34;Forest at night&#34; /&#62;&#10;        &#60;/a&#62;&#10;        &#60;figcaption&#62;&#38;copy; Dragomir Uzunov&#60;/figcaption&#62;&#10;    &#60;/figure&#62;&#10;&#60;/article&#62;&#10;&#60;script&#62;&#10;    new Carousel(&#39;carousel&#39;,{&#10;        containerToRenderId:&#39;carouselAnim&#39;,&#10;        bgPosition: &#39;center&#39;,&#10;        displayTime: 10,&#10;        drawSkitHeader: true,&#10;        drawSkitText: true,&#10;        drawSkitButton: true,&#10;        drawPausePlayButton: true&#10;    });&#10;&#60;/script&#62;</pre>
                 </section>
                 <section>
                     <h2><a id="carouselImgSyntax" href="#carouselImgSyntax">Syntax</a></h2>
@@ -255,20 +240,30 @@
                         <dd>Sets rendered container class name attribute, defaults to <code>'boxCarousel'</code>.</dd>
                         <dt>buttonClassName</dt>
                         <dd>Sets rendered button class name attribute, defaults to <code>'boxCarouselButton'</code>.</dd>
+                        <dt>buttonNextArrowClassName</dt>
+                        <dd>Sets rendered arrow class name attribute, defaults to <code>'boxCarouselArrowNext'</code>.</dd>
+                        <dt>buttonPreviousArrowClassName</dt>
+                        <dd>Sets rendered arrow class name attribute, defaults to <code>'boxCarouselArrowPrevious'</code>.</dd>
                         <dt>buttonPauseClassName</dt>
                         <dd>Sets rendered pause button class name attribute, defaults to <code>'boxCarouselButtonPlay'</code>.</dd>
                         <dt>buttonPlayClassName</dt>
                         <dd>Sets rendered play button class name attribute, defaults to <code>'boxCarouselButtonPause'</code>.</dd>                  
                         <dt>buttonPauseText</dt>
-                        <dd>Sets text node for rendered button, defaults to <code>'pause'</code>.</dd>
+                        <dd>Sets text node for rendered content <code>&lt;button&gt;</code>, defaults to <code>'pause'</code>.</dd>
                         <dt>buttonPlayText</dt>
-                        <dd>Sets text node for rendered button, defaults to <code>'play'</code>.</dd>
+                        <dd>Sets text node for rendered content <code>&lt;button&gt;</code>, defaults to <code>'play'</code>.</dd>
                         <dt>contentClassName</dt> 
                         <dd>Sets rendered div class name attribute, defaults to <code>'boxCarouselContent'</code>.</dd>
                         <dt>containerToRenderId</dt>
                         <dd>Sets id attribute of element where carousel will be rendered, defaults to <code>'carouselAnim'</code>.</dd>
+                        <dt>drawNav</dt>
+                        <dd>Disable/enable naviagtion rendering - boolean, defaults to <code>true</code>.</dd>
+                        <dt>drawNavArrows</dt>
+                        <dd>Disable/enable naviagtion arrows rendering - boolean, defaults to <code>true</code>.</dd>
                         <dt>drawSkitHeader</dt>
                         <dd>Disable/enable img title tag rendering - boolean, defaults to <code>true</code>.</dd>
+                        <dt>drawSkitSubHeader</dt>
+                        <dd>Disable/enable img alt tag rendering - boolean, defaults to <code>true</code>.</dd>
                         <dt>drawSkitText</dt>
                         <dd>Disable/enable img data-long-desc tag rendering - boolean, defaults to <code>true</code>.</dd>
                         <dt>drawSkitButton</dt>
@@ -277,6 +272,14 @@
                         <dd>Disable/enable pause button rendering - boolean, defaults to <code>true</code>.</dd>
                         <dt>menuClassName</dt>
                         <dd>Sets rendered menu class name attribute, defaults to <code>'boxCarouselNav'</code>.</dd>
+                        <dt>navigationTextAttr</dt>
+                        <dd>Sets rendered text node for navigation <code>&lt;li&gt</code> element<code>'alt'</code>.</dd>
+                        <dt>skitButtonTextAttr</dt>
+                        <dd>Sets rendered text node for content <code>&lt;a&gt;</code> element <code>'alt'</code>.</dd>
+                        <dt>skitHeaderAttr</dt>
+                        <dd>Sets rendered text node for content <code>&lt;h1&gt;</code> element <code>'title'</code>.</dd>
+                        <dt>skitSubHeaderAttr</dt>
+                        <dd>Sets rendered text node for content <code>&lt;h2&gt;</code> element <code>'title'</code>.</dd>
                     </dl>
                 </section>
             </article>
@@ -342,7 +345,10 @@
                 containerToRenderId:'carouselAnim',
                 bgPosition: 'center',
                 displayTime: 10,
-                drawSkitButton: true
+                drawSkitHeader: true,
+                drawSkitText: true,
+                drawSkitButton: true,
+                drawPausePlayButton: true
             });
             new IntervalInputs('.interval',{
                 intervalChar: '-',
