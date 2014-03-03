@@ -78,7 +78,7 @@ var IntervalInputs = Class.create({
             inputs.each(function(input) {
                 val += $F(input); 
             }.bind(this));
-            $(inputs.first().name+"-"+inputs.last().name).value = val;
+            $(inputs.first().name+inputs.last().name).value = val;
         }.bind(this));    
     },
     maxLengthFocusChange: function(input) {
