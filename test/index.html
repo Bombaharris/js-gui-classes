@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>QUnit scenarios</title>
+        <link rel="stylesheet" href="qunit/qunit-1.20.0.css">
+    </head>
+    <body>
+        <div id="qunit"></div>
+        <div id="qunit-fixture">
+            <div id="harmonyDiv">
+                <ul class="dropdown" id="dropdown">
+                    <li>
+                        <a href="#menuHarmony">menuHarmony.js</a>
+                        <ul>
+                            <li>
+                                <a href="#menuHarmonyDemo">demo</a>                        
+                            </li>
+                            <li>
+                                <a href="#menuHarmonyExample">example</a>                        
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#menuTab">menuTab.js</a>
+                        <ul>
+                            <li>
+                                <a href="#menuTabDemo">demo</a>                        
+                            </li>
+                            <li>
+                                <a href="#menuTabExample">example</a>                        
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="tabDiv">
+                <ul class="tab" id="tab">
+                    <li>
+                        <a href="#">____1____</a>
+                    </li>
+                    <li>
+                        <a href="#">____2____</a>
+                    </li>
+                    <li>
+                        <a href="#">____3____</a>
+                    </li>
+                </ul>
+                <div id="tabDivs">
+                    <div>____1____</div>
+                    <div>____2____</div>
+                    <div>____3____</div>
+                </div>
+            </div>
+            <div id="carouselDiv">
+                <section id="carouselAnim"></section>
+                <article id="carousel">
+                    <figure>
+                        <a href="#lake" title="Lake">
+                            <img src="../examples/img/nature001.jpg" alt="Sunset at lake" />
+                        </a>
+                        <figcaption>&copy; Spudulike</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="#mountains" title="Mountains">
+                            <img src="../examples/img/nature002.jpg" alt="Mountain house" />
+                        </a>
+                        <figcaption>&copy; Dariusz Marcinek</figcaption>
+                    </figure>
+                    <figure>
+                        <a href="#forest" title="Forest">
+                            <img src="../examples/img/nature003.jpg" alt="Forest at night" />
+                        </a>
+                        <figcaption>&copy; Dragomir Uzunov</figcaption>
+                    </figure>
+                </article>
+            </div>
+        </div>
+        <script src="qunit/qunit-1.20.0.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/prototype/1.7.2.0/prototype.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js?load=effects"></script>
+        <script src="js/event.simulate.js"></script>
+        <script src="../menuHarmony.js"></script>
+        <script src="../menuTab.js"></script>
+        <script src="../carouselImg.js"></script>
+        <script src="../intervalInputs.js"></script>
+        <script src="../canvasFingerprint.js"></script>
+        <script>
+            QUnit.module("Basic tests");
+            QUnit.test("all Class are defined functions", function (assert) {
+                assert.equal(typeof Harmony, "function", "We expect Harmony to be a function");
+                assert.equal(typeof Tab, "function", "We expect Tab to be a function");
+                assert.equal(typeof Carousel, "function", "We expect Carousel to be a function");
+                assert.equal(typeof IntervalInputs, "function", "We expect IntervalInputs to be a function");
+                assert.equal(typeof CanvasFingerprint, "function", "We expect CanvasFingerprint to be a function");
+            });
+
+            QUnit.module("Harmony tests");
+            QUnit.test("Harmony behaviour", function (assert) {
+                var done = assert.async();
+                var harmonyObject = new Harmony('dropdown');
+                var harmonyElement = $('dropdown');
+                assert.equal(typeof harmonyObject, "object", "We expect Harmony to be a object");
+
+                harmonyElement.select("li a").first().simulate("click");
+                setTimeout(function () {
+                    assert.equal(harmonyElement.select("li a").first().hasClassName("selected"), true, "Harmony first element a change class to default 'selected'.");
+                    assert.equal(harmonyElement.select("ul").first().visible(), true, "Harmony first element ul is visible.");
+                    done();
+                }, 500);
+            });
+
+            QUnit.module("Tab tests");
+            QUnit.test("Tab behaviour", function (assert) {
+                var done = assert.async();
+                var tabObject = new Tab('tab', 'tabDivs');
+                var tabElement = $('tab');
+                var tabDivElement = $('tabDivs');
+                assert.equal(typeof tabObject, "object", "We expect Tab to be a object");
+
+                tabElement.select("li a").last().simulate("click");
+                setTimeout(function () {
+                    assert.equal(tabElement.select("li a").last().hasClassName("selected"), true, "Tab last element a change class to default 'selected'.");
+                    assert.equal(tabDivElement.select("div").last().visible(), true, "Tab last element div is visible.");
+                    done();
+                });
+            });
+
+            QUnit.module("Carousel tests");
+            QUnit.test("Carousel behaviour", function (assert) {
+                var done = assert.async();
+                var carouselObject = new Carousel('carousel', {
+                    containerToRenderId: 'carouselAnim'
+                });
+                var carouselElement = $('carousel');
+                var carouselAnimElement = $('carouselAnim');
+                assert.equal(typeof carouselObject, "object", "We expect Carousel to be a object");
+
+                carouselAnimElement.select(".boxCarouselNav li a").last().simulate("click");
+                setTimeout(function () {
+                    assert.equal(carouselAnimElement.select(".boxCarouselNav li").last().hasClassName("selected"), true, "Carousel second element a change class to default 'selected'.");
+                    done();
+                });
+            });
+
+            QUnit.module("CanvasFingerint tests");
+            QUnit.test("CanvasFingerint behaviour", function (assert) {
+                var cFprnt1 = new CanvasFingerprint();
+                var cFprnt2 = new CanvasFingerprint();
+
+                assert.equal(typeof cFprnt1, "object", "We expect CanvasFingerprint to be a object");
+                assert.equal(cFprnt1.getFingerprint(), cFprnt2.getFingerprint(), "We expect CanvasFingerprint hash to be always the same.");
+
+            });
+
+
+        </script>
+    </body>
+</html>

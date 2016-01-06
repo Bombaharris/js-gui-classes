@@ -358,11 +358,11 @@
                 </section>
                 <section>
                     <h2><a id="canvasFingerprintExample" href="#canvasFingerprintExample">Example</a></h2>
-                    <pre>&lt;var id&equals;"fingerprint"&gt;&lt;&sol;var&gt;&NewLine;&lt;script&gt;&NewLine;    cFprnt &equals; new canvasFingerprint&lpar;&rpar;&semi;&NewLine;    &dollar;&lpar;'fingerprint'&rpar;&period;update&lpar;cFprnt&period;getFingerprint&lpar;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
+                    <pre>&lt;var id&equals;"fingerprint"&gt;&lt;&sol;var&gt;&NewLine;&lt;script&gt;&NewLine;    var cFprnt &equals; new CanvasFingerprint&lpar;&rpar;&semi;&NewLine;    &dollar;&lpar;'fingerprint'&rpar;&period;update&lpar;cFprnt&period;getFingerprint&lpar;&rpar;&rpar;&semi;&NewLine;&lt;&sol;script&gt;</pre>
                 </section>
                 <section>
                     <h2><a id="canvasFingerprintSyntax" href="#canvasFingerprintSyntax">Syntax</a></h2>
-                    <pre class="large">new canvasFingerprint();</pre>
+                    <pre class="large">new CanvasFingerprint();</pre>
                 </section>
             </article>
         </section>
@@ -395,7 +395,7 @@
                 scaleAttribute: 'maxlength',
                 autoFocusChange: true
             });
-            cFprnt = new canvasFingerprint();
+            var cFprnt = new CanvasFingerprint();
             $('fingerprint').update(cFprnt.getFingerprint());
         </script>
     </body>
