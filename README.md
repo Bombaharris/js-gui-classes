@@ -1,4 +1,4 @@
-[js-gui-classes](http://js-gui-classes.rocktech.pl/) 
+[js-gui-classes](https://bombaharris.github.io/js-gui-classes/) 
 ===============
 
 Description
@@ -10,7 +10,7 @@ js-gui-classes It's a Prototype JavaScript framework based libraries for front-e
 Demo
 ----
 
-http://js-gui-classes.rocktech.pl/
+https://bombaharris.github.io/js-gui-classes/
 
 Authors
 -------
